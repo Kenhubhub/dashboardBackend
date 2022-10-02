@@ -3,21 +3,21 @@ const asyncHandler = require("express-async-handler")
 const User = require("../schemas/userSchema")
 //Use to register a user
 const registerUser = asyncHandler(async(req,res) =>{
-    const {email, username, password} = req.body;
+    const {email, username, password,profilePicture} = req.body;
     const createdUser = await User.create({
         username,
         email,
-        password
+        password,
+        profilePicture
     })
     res.json(createdUser)
 })
 //Use to login user
 const loginUser = asyncHandler(async(req,res)=>{
-    const {email, username, password} = req.body;
-    const user= await User.findOne({email: email});
+    const {username, password} = req.body;
+    const user= await User.findOne({username: username});
     if(user && user.password === password){
         res.json(user);
-        console.log(user._id)
     }else{
         res.status(400);
         throw new Error("Invalid email or password");

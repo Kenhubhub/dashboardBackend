@@ -13,12 +13,14 @@ dbconnect();
 //cors
 const cors = require("cors")
 app.use(cors({
-    origin: "https://heartfelt-pegasus-34387a.netlify.app",
+    origin: "http://localhost:3000/",
 }))
 //User Routing
 app.use("/user", require("./routes/userRoutes"))
 //Task Routing
 app.use("/tasks", require("./routes/taskRoutes"))
+//image routing
+app.use("/images",require("./routes/imageRoutes"))
 app.listen(port || 5000, (req,res) =>{
     console.log(`listening on port ${port}`);
 })
