@@ -10,6 +10,7 @@ const registerUser = asyncHandler(async(req,res) =>{
         password,
         profilePicture
     })
+    console.log(createdUser.profilePicture)
     res.json(createdUser)
 })
 //Use to login user
@@ -19,8 +20,7 @@ const loginUser = asyncHandler(async(req,res)=>{
     if(user && user.password === password){
         res.json(user);
     }else{
-        res.status(400);
-        throw new Error("Invalid email or password");
+        res.send(null);
     }
 })
 
