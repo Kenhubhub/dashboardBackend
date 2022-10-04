@@ -20,7 +20,7 @@ dbconnect();
 //cors
 const cors = require("cors")
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "https://bright-dieffenbachia-70d522.netlify.app",
 }))
 //User Routing
 app.use("/user", require("./routes/userRoutes"))
