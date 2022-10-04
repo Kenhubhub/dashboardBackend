@@ -20,7 +20,15 @@ const createTask = asyncHandler(async(req,res) =>{
 const updateTask = asyncHandler(async(req,res)=>{
     const task = await Task.findById(req.params.id);
     if(task){
-        res.json(task);
+        if(task.status === "incomplete"){
+            
+           const taskResponse = await Task.findByIdAndUpdate(req.params.id,{status: "complete"})
+            res.json(taskResponse)
+        }else{
+           
+            const taskResponse = await Task.findByIdAndUpdate(req.params.id,{status: "incomplete"})
+            res.json(taskResponse);
+        }
     }else{
         res.status(400);
         throw new Error("Invalid task");
