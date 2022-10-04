@@ -51,9 +51,9 @@ app.post('/news', async (req, res) => {
 //    Axios.get(req.body.url).then( data =>{
 //         res.send(data.data);
 //    })
-    const browser = await puppeteer.launch({
-      ignoreDefaultArgs: ['--disable-extensions']
-    });
+    const browser = await puppeteer.launch(
+      { args: ['--no-sandbox'] }
+                );
     const page = await browser.newPage();
     await page.goto(
         req.body.url
