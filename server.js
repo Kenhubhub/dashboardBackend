@@ -2,8 +2,8 @@
 const express = require("express");
 const request = require("request")
 const fs = require("fs")
-const csvPath = "i1.csv";
-const csv=require('csvtojson')
+// const csvPath = "i1.csv";
+// const csv=require('csvtojson')
 
 
 const puppeteer = require("puppeteer")
@@ -72,19 +72,19 @@ app.post('/news', async (req, res) => {
   res.json({images:issueSrcs, para})
 
 })
-app.get("/sports", (req,res)=>{
-    csv()
-.fromFile(csvPath)
-.then((jsonObj)=>{
-    res.json(jsonObj);
-    /**
-     * [
-     * 	{a:"1", b:"2", c:"3"},
-     * 	{a:"4", b:"5". c:"6"}
-     * ]
-     */ 
-})
-})
+// app.get("/sports", (req,res)=>{
+//     csv()
+// .fromFile(csvPath)
+// .then((jsonObj)=>{
+//     res.json(jsonObj);
+//     /**
+//      * [
+//      * 	{a:"1", b:"2", c:"3"},
+//      * 	{a:"4", b:"5". c:"6"}
+//      * ]
+//      */ 
+// })
+// })
 app.get("/clothes", async(req,res)=>{
     const data = await Axios.get("https://therapy-box.co.uk/hackathon/clothing-api.php?username=swapnil");
     
