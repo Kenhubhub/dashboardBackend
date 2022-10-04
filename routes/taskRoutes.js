@@ -6,5 +6,7 @@ router.get("/:id",getTasks)
 router.post("/",createTask)
 //PUT   update status of a task
 router.put("/:id",updateTask)
+//DELETE
+router.delete("/:id",deleteTask)
 
 module.exports = router;

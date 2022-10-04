@@ -35,8 +35,15 @@ const updateTask = asyncHandler(async(req,res)=>{
     }
     
 })
+//delete /task/:id
+const deleteTask = asyncHandler(async(req,res)=>{
+    
+    const deletedImage = await Task.findByIdAndDelete({_id: req.params.id});
+    res.json(deletedImage)
+})
 module.exports = {
     getTasks,
     createTask,
-    updateTask
+    updateTask,
+    deleteTask
 }
