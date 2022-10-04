@@ -4,7 +4,7 @@ const request = require("request")
 const fs = require("fs")
 // const csvPath = "i1.csv";
 // const csv=require('csvtojson')
-
+const sportsData = require("./sports")
 
 const puppeteer = require("puppeteer")
 const Axios = require("axios")
@@ -74,7 +74,9 @@ app.post('/news', async (req, res) => {
   res.json({images:issueSrcs, para})
 
 })
-// app.get("/sports", (req,res)=>{
+app.get("/sports", (req,res)=>{
+  res.json(sportsData)
+})
 //     csv()
 // .fromFile(csvPath)
 // .then((jsonObj)=>{
