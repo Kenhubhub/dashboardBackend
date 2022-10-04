@@ -85,7 +85,11 @@ app.get("/sports", (req,res)=>{
      */ 
 })
 })
-
+app.get("/clothes", async(req,res)=>{
+    const data = await Axios.get("https://therapy-box.co.uk/hackathon/clothing-api.php?username=swapnil");
+    
+    res.json(data.data.payload)
+})
 
 app.listen(port || 5000, (req,res) =>{
     console.log(`listening on port ${port}`);
