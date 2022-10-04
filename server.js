@@ -1,9 +1,8 @@
 //Express setup
 const express = require("express");
 const request = require("request")
-const fs = require("fs")
-// const csvPath = "i1.csv";
-// const csv=require('csvtojson')
+
+
 const sportsData = require("./sports")
 
 const puppeteer = require("puppeteer")
@@ -47,10 +46,7 @@ app.get('/news', (req, res) => {
     })
 })
 app.post('/news', async (req, res) => {
-//     console.log(req.body.url);
-//    Axios.get(req.body.url).then( data =>{
-//         res.send(data.data);
-//    })
+
     const browser = await puppeteer.launch(
       { args: ['--no-sandbox'] }
                 );
@@ -77,18 +73,7 @@ app.post('/news', async (req, res) => {
 app.get("/sports", (req,res)=>{
   res.json(sportsData)
 })
-//     csv()
-// .fromFile(csvPath)
-// .then((jsonObj)=>{
-//     res.json(jsonObj);
-//     /**
-//      * [
-//      * 	{a:"1", b:"2", c:"3"},
-//      * 	{a:"4", b:"5". c:"6"}
-//      * ]
-//      */ 
-// })
-// })
+
 app.get("/clothes", async(req,res)=>{
     const data = await Axios.get("https://therapy-box.co.uk/hackathon/clothing-api.php?username=swapnil");
     
