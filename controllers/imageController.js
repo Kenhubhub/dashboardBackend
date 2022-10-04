@@ -48,7 +48,8 @@ const uploadGallery = asyncHandler(async(req,res)=>{
 })
 //delete image 
 const deleteImage = asyncHandler(async(req,res)=>{
-
+    const deletedImage = await Image.findByIdAndDelete({_id: req.params.id});
+    res.json(deletedImage)
 })
 
 module.exports = {
